@@ -19,7 +19,7 @@ Then call the script like this
 ## Customization
 
 You can use other value_types from the airrohr api json on the command line if you like.
-Just open url http://<yourAirrohrIp>/data.json to see which values are available on your device.
+Just open url http://{yourAirrohrIp}/data.json to see which values are available on your device.
 
 
 ## Documentation on Airrohr firmware and Domoticz
