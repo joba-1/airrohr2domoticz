@@ -1,4 +1,6 @@
-# Gateway for airrohr api values to domoticz device indexes
+#Airrohr2Domoticz
+
+Gateway for airrohr api values to domoticz device indexes
 
 
 ## Example call
@@ -11,7 +13,7 @@ Given you have
 
 Then call the script like this
 
-> ./airrohr2domoticz.py 7110 localhost:8888 SDS_P1=19 SDS_P2=18
+    ./airrohr2domoticz.py 7110 localhost:8888 SDS_P1=19 SDS_P2=18
 
 
 ## Customization
@@ -22,8 +24,8 @@ Just open url http://<yourAirrohrIp>/data.json to see which values are available
 
 ## Documentation on Airrohr firmware and Domoticz
 
-[Airrohr firmware for luftdaten.info](https://github.com/opendata-stuttgart/sensors-software/tree/master/airrohr-firmware)
-[Airrohr api](https://github.com/opendata-stuttgart/meta/wiki/APIs)
-[Domoticz json api](https://www.domoticz.com/wiki/Domoticz_API/JSON_URL's#Custom_Sensor)
-[Domoticz dummy hardware setup for custom sensors](https://www.domoticz.com/wiki/Hardware_Setup#Dummy_Hardware)
+* [Airrohr firmware for luftdaten.info](https://github.com/opendata-stuttgart/sensors-software/tree/master/airrohr-firmware)
+* [Airrohr api](https://github.com/opendata-stuttgart/meta/wiki/APIs)
+* [Domoticz json api](https://www.domoticz.com/wiki/Domoticz_API/JSON_URL's#Custom_Sensor)
+* [Domoticz dummy hardware setup for custom sensors](https://www.domoticz.com/wiki/Hardware_Setup#Dummy_Hardware)
 
