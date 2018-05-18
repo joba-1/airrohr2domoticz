@@ -22,6 +22,17 @@ You can use other value_types from the airrohr api json on the command line if y
 Just open url http://{yourAirrohrIp}/data.json to see which values are available on your device.
 
 
+## Installation
+
+Just call the installation script (tested with opensuse 42.2)
+
+    sudo ./install.sh
+
+It is assumed your os uses systemd
+It is assumed, domoticz is already installed (at least user and group domoticz must exist)
+It also assumes OPTIONS in ./airrohr2domoticz.env match your setup (or you can adapt it later in /etc/default/)
+
+
 ## Documentation on Airrohr firmware and Domoticz
 
 * [Airrohr firmware for luftdaten.info](https://github.com/opendata-stuttgart/sensors-software/tree/master/airrohr-firmware)

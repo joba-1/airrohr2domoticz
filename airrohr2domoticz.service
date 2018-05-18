@@ -1,0 +1,18 @@
+[Unit]
+Description=Airrohr2Domoticz Gateway Server
+After=syslog.target
+
+[Service]
+Type=simple
+User=domoticz
+Group=domoticz
+EnvironmentFile=-/etc/default/airrohr2domoticz.env
+ExecStart=/usr/local/bin/airrohr2domoticz.py $OPTIONS
+SyslogIdentifier=airrohr2domoticz
+StandardOutput=syslog
+StandardError=syslog
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
