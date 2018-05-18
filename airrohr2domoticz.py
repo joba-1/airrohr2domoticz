@@ -2,18 +2,30 @@
 
 """
 HTTP gateway receiving airrohr post data and sending it to domoticz.
-Tested with Python 2.7
+Tested with Python 2.7 and 3.4
 Author: Joachim Banzhaf
 License: GPL V2 or later
 """
 
 from __future__ import print_function
-from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+from builtins import bytes
+
+try:
+    from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+except ImportError:
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+
 from json import loads
-from urllib2 import urlopen, HTTPError, URLError
+
+try:
+    from urllib2 import urlopen, HTTPError, URLError
+except ImportError:
+    from urllib.request import urlopen
+    from urllib.error import HTTPError, URLError
+
 from sys import stderr, argv, exit
 
-ver='1.0'
+ver='1.1'
 
 def postDomo(srv, idx, val):
     url = "http://{}/json.htm?type=command&param=udevice&idx={}&nvalue=0&svalue={}".format(srv, idx, val)
@@ -35,13 +47,13 @@ class Gateway(BaseHTTPRequestHandler):
     def respond( self, code, msg ):
         self.send_response(code)
         self.send_header("Content-Type", "text/ascii")
-        self.send_header("Content-Length", len(msg))
+        self.send_header("Content-Length", len(bytes(msg, 'utf8')))
         self.end_headers()
-        self.wfile.write(msg)
+        self.wfile.write(bytes(msg, 'utf8'))
 
     def do_POST( self ):
-        content_length = int(self.headers.getheader("Content-Length", 0))
-        json_data = loads(self.rfile.read(content_length))
+        content_length = int(self.headers.get("Content-Length", 0))
+        json_data = loads(self.rfile.read(content_length).decode('utf-8'))
 
         foundValues = updatedValues = 0
         for value in json_data["sensordatavalues"]:
