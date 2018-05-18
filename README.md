@@ -24,13 +24,13 @@ Just open url http://{yourAirrohrIp}/data.json to see which values are available
 
 ## Installation
 
-Just call the installation script (tested with opensuse 42.2)
+Adapt OPTIONS in ./airrohr2domoticz.env to match your setup (or you can adapt it later in /etc/default/).
+Then call the installation script (tested with opensuse 42.2)
 
     sudo ./install.sh
 
-It is assumed your os uses systemd
-It is assumed, domoticz is already installed (at least user and group domoticz must exist)
-It also assumes OPTIONS in ./airrohr2domoticz.env match your setup (or you can adapt it later in /etc/default/)
+It is assumed your os uses systemd.
+It is further assumed, domoticz is already installed (at least user and group domoticz must exist).
 
 
 ## Documentation on Airrohr firmware and Domoticz
